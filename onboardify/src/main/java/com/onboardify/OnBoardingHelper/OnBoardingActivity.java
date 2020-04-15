@@ -40,6 +40,7 @@ import com.onboardify.DataCommunicator.EventEmitter;
 import com.onboardify.DataCommunicator.ImagePicker;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.Objects;
 
 
 public class OnBoardingActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
@@ -53,7 +54,7 @@ public class OnBoardingActivity extends AppCompatActivity implements DefaultHard
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         liveData = new MutableLiveData<>();
         preferences = getSharedPreferences("onBoard",MODE_PRIVATE);
         mReactRootView = new ReactRootView(this);
